@@ -1,5 +1,8 @@
 import { headerContent } from './test-module';
 
+// Test for Sass Loader
+import './index.scss';
+
 // Test for CSS Loader
 import './index.css';
 

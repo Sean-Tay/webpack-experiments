@@ -61,7 +61,7 @@ const buildConfig = {
                 ]
             }, 
             {
-                test: /\.css$/,
+                test: /\.(scss|css)$/,
                 exclude: [
                     PATHS.PATH_NODE_MODULES,
                 ],
@@ -71,10 +71,17 @@ const buildConfig = {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader'
-                    }
+                        loader: 'css-loader',
+
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    },
                 ]
-            }
+            },
         ],
     },
 

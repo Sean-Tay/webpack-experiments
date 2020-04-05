@@ -4,7 +4,7 @@
   "description": "Webpack Experiments",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon --watch webpack.config.js --watch webpack.dev.config.js --exec \"rm -rf ./dist && npx webpack-dev-server --mode=development --config webpack.dev.config.js\"",
+    "dev": "nodemon --watch package.json --watch webpack.config.js --watch webpack.dev.config.js --exec \"rm -rf ./dist && npx webpack-dev-server --mode=development --config webpack.dev.config.js\"",
     "build": "rm -rf ./dist && webpack --mode=production"
   },
   "repository": {

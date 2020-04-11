@@ -1,0 +1,23 @@
+{
+    "include": [
+        "src/**/*",
+    ],
+    "exclude": [
+        "node_modules",
+    ],
+    "compilerOptions": {
+        "types": [],            // Specify that TypeScript should only Type Check the following Library Packages (which have the corresponding @types/'<package>' Scoped Package installed). Note: This Option is independent of the 'exclude' Option specified above.
+        "noImplicitAny": true,  // Raise Error on Expressions with an implicit 'any' Type.
+
+        "allowJs": true,	    // Allow JS Files to be processed with Type Checking.
+
+        "moduleResolution": "Classic", // Specify the in-built Method for resolving a Module's Dependencies.
+        "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.
+        "isolatedModules": true, // Disallow Features that requires Cross-File Analysis. Useful when Babel is to be used for compilation and transpilation instead.
+        "lib": ["ES6"],         // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.
+        "module": "CommonJS",   // Specify the Module Resolution System of the Target Runtime Environment.
+        "target": "ES5", 	    // Specify which Version of the Language would the Source be compiled down to, for the Target Runtime Environment.
+
+        "noEmit": true, 	    // Do not emit any Artifacts once checking is done. Useful when Babel is to be used for compilation and transpilation instead.
+    }
+}

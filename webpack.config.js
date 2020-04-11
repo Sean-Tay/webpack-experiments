@@ -1,6 +1,7 @@
 const path = require('path');
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const PATHS = require('./paths');
 
@@ -10,7 +11,8 @@ const buildConfig = {
     plugins: [
         new HTMLWebpackPlugin({
             template: path.resolve(PATHS.PATH_SRC, './index.html'),
-        })
+        }),
+        new ForkTSCheckerWebpackPlugin()
     ],
 
     // Specify the Entry-Points for Webpack.
@@ -34,7 +36,12 @@ const buildConfig = {
 
         // Specify which Files should be the Entry Point in a Directory Module. Upon a match, it will ignore the rest.
         mainFiles: [
-            'index.js'
+            'index'
+        ],
+
+        // Allow for resolution of the listed Extensions, in the specified order. Upon a match, it will ignore the rest.
+        extensions: [
+            '.ts', '.js'
         ],
     },
 
@@ -42,7 +49,7 @@ const buildConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(ts|js)$/,
                 exclude: [
                     PATHS.PATH_NODE_MODULES,
                 ],
@@ -54,7 +61,8 @@ const buildConfig = {
                             cacheDirectory: true,
 
                             presets: [
-                                '@babel/preset-env'
+                                '@babel/preset-env',
+                                '@babel/preset-typescript'
                             ]
                         }
                     },

@@ -11,7 +11,7 @@
 
         "allowJs": true,	    // Allow JS Files to be processed with Type Checking.
 
-        "moduleResolution": "Classic", // Specify the in-built Method for resolving a Module's Dependencies.
+        "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
         "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.
         "isolatedModules": true, // Disallow Features that requires Cross-File Analysis. Useful when Babel is to be used for compilation and transpilation instead.
         "lib": ["ES6"],         // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.

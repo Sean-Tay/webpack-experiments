@@ -51,7 +51,7 @@ const devConfig = Object.assign(
             historyApiFallback: true, 
 
             // Enable Hot Module Replacement.
-            hotOnly: true,
+            // hotOnly: true,
         },
     }
 );

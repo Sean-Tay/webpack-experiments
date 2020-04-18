@@ -6,10 +6,11 @@
         "node_modules",
     ],
     "compilerOptions": {
-        "types": [],            // Specify that TypeScript should only Type Check the following Library Packages (which have the corresponding @types/'<package>' Scoped Package installed). Note: This Option is independent of the 'exclude' Option specified above.
+        "types": [ "react" ],   // Specify that TypeScript should only Type Check the following Library Packages (which have the corresponding @types/'<package>' Scoped Package installed). Note: This Option is independent of the 'exclude' Option specified above.
         "noImplicitAny": true,  // Raise Error on Expressions with an implicit 'any' Type.
 
         "allowJs": true,	    // Allow JS Files to be processed with Type Checking.
+        "jsx": "react",         // Allow JSX Syntax.
 
         "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
         "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.

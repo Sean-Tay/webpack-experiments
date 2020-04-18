@@ -41,7 +41,7 @@ const buildConfig = {
 
         // Allow for resolution of the listed Extensions, in the specified order. Upon a match, it will ignore the rest.
         extensions: [
-            '.ts', '.js'
+            '.tsx', '.ts', '.jsx', '.js'
         ],
     },
 
@@ -49,7 +49,7 @@ const buildConfig = {
     module: {
         rules: [
             {
-                test: /\.(ts|js)$/,
+                test: /\.(ts|js)x?$/,
                 exclude: [
                     PATHS.PATH_NODE_MODULES,
                 ],
@@ -62,6 +62,7 @@ const buildConfig = {
 
                             presets: [
                                 '@babel/preset-env',
+                                '@babel/preset-react',
                                 '@babel/preset-typescript'
                             ]
                         }

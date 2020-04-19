@@ -80,10 +80,14 @@ const buildConfig = {
                         loader: 'style-loader'
                     },
                     {
+                        loader: 'css-modules-typescript-loader'
+                    },
+                    {
                         loader: 'css-loader',
 
                         options: {
-                            importLoaders: 1
+                            importLoaders: 1,
+                            modules: true,
                         }
                     },
                     {

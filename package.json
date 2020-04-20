@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --watch package.json --watch tsconfig.json --watch webpack.config.js --watch webpack.dev.config.js --exec \"rm -rf ./dist && npx webpack-dev-server --mode=development --config webpack.dev.config.js\"",
     "check-types": "tsc",
-    "build": "rm -rf ./dist && npm run check-types && webpack --mode=production"
+    "build": "rm -rf ./dist && npm run check-types && webpack --mode=production --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const PATHS = require('./paths');
 
-const buildConfig = {
+const baseConfig = {
     // Specify additional Plugins to expand the functionality of Webpack.
     // Note: Don't forget the new keyword.
     plugins: [
@@ -105,4 +105,4 @@ const buildConfig = {
     },
 };
 
-module.exports = buildConfig;
+module.exports = baseConfig;

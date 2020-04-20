@@ -3,14 +3,14 @@ const webpack = require('webpack');
 
 const PATHS = require('./paths');
 
-const buildConfig = require('./webpack.config');
+const baseConfig = require('./webpack.base.config');
 
 const devConfig = Object.assign(
     {},
-    buildConfig,
+    baseConfig,
     {
         plugins: [
-            ...buildConfig.plugins,
+            ...baseConfig.plugins,
             new webpack.HotModuleReplacementPlugin(),
         ],
         

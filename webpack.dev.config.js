@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const wMerge = require('webpack-merge');
 
 const PATHS = require('./paths');
 
 const baseConfig = require('./webpack.base.config');
 
-const devConfig = Object.assign(
-    {},
+const devConfig = wMerge(
     baseConfig,
     {
         plugins: [

@@ -1,3 +1,8 @@
+const wMerge = require('webpack-merge');
+
 const baseConfig = require('./webpack.base.config');
 
-module.exports = baseConfig;
+module.exports = wMerge(
+    baseConfig,
+    {}
+);

@@ -1,5 +1,7 @@
+const glob = require('glob');
 const wMerge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgeCssWebpackPlugin = require('purgecss-webpack-plugin');
 
 const PATHS = require('./paths');
 
@@ -12,15 +14,40 @@ module.exports = wMerge(
             new MiniCssExtractPlugin({
                 filename: '[name].css'
             }),
+            new PurgeCssWebpackPlugin({
+                paths: () => glob.sync(`${PATHS.PATH_SRC}/**/*`, { nodir: true }),
+                whitelistPatterns: [/^app*/, ],
+                whitelistPatternsChildren: [/^app*/, ],
+            }),
         ],
 
         // Use Minified and Extracted CSS for Production.
         module: {
             rules: [
+                // For PureCSS:
                 {
-                    test: /\.(scss|css)$/,
-                    exclude: [
-                        PATHS.PATH_NODE_MODULES,
+                    test: /\.(css)$/,
+                    include: [
+                        /node_modules\/purecss\/.*/,
+                    ],
+
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                esModule: true,
+                            }
+                        },
+                        {
+                            loader: 'css-loader',
+                        },
+                    ]
+                },
+                // For Source:
+                {
+                    test: /\.(s?css)$/,
+                    include: [
+                        PATHS.PATH_SRC
                     ],
     
                     use: [

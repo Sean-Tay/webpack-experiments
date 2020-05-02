@@ -17,10 +17,27 @@ const devConfig = wMerge(
         // Use CSS Modules and HMR for Development.
         module: {
             rules: [
+                // For PureCSS:
                 {
-                    test: /\.(scss|css)$/,
-                    exclude: [
-                        PATHS.PATH_NODE_MODULES,
+                    test: /\.(css)$/,
+                    include: [
+                        /node_modules\/purecss\/.*/,
+                    ],
+
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader',
+                        },
+                    ]
+                },
+                // For Source:
+                {
+                    test: /\.(s?css)$/,
+                    include: [
+                        PATHS.PATH_SRC
                     ],
     
                     use: [

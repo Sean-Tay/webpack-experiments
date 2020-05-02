@@ -1,16 +1,19 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap);
 
-.title {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-
-    margin-bottom: 5px;
-}
-
 .main {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-
     font-family: 'Roboto', sans-serif;
+
+    .title {
+        text-align: center;
+    
+        margin-bottom: 5px;
+    }
+    
+    .colored-sections {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        margin-bottom: 5px;
+    }
 }

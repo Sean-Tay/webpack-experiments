@@ -69,7 +69,7 @@ const baseConfig = {
                 ]
             }, 
             {
-                test: /\.(scss|css)$/,
+                test: /\.(s?css)$/,
                 exclude: [
                     PATHS.PATH_NODE_MODULES,
                 ],

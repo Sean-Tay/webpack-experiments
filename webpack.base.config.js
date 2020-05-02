@@ -50,8 +50,8 @@ const baseConfig = {
         rules: [
             {
                 test: /\.(ts|js)$/,
-                exclude: [
-                    PATHS.PATH_NODE_MODULES,
+                include: [
+                    PATHS.PATH_SRC,
                 ],
 
                 use: [
@@ -70,8 +70,8 @@ const baseConfig = {
             }, 
             {
                 test: /\.(s?css)$/,
-                exclude: [
-                    PATHS.PATH_NODE_MODULES,
+                include: [
+                    PATHS.PATH_SRC,
                 ],
 
                 use: [

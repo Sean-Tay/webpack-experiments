@@ -39,7 +39,7 @@ module.exports = wMerge(
                             options: {
                                 importLoaders: 1,
                                 modules: {
-                                    localIdentName: 'app-[name]-[hash:base64]',
+                                    localIdentName: 'app-[hash:base64]',
                                 },
                             }
                         },

@@ -13,6 +13,38 @@ const devConfig = wMerge(
             ...baseConfig.plugins,
             new webpack.HotModuleReplacementPlugin(),
         ],
+
+        // Use CSS Modules and HMR for Development.
+        module: {
+            rules: [
+                {
+                    test: /\.(scss|css)$/,
+                    exclude: [
+                        PATHS.PATH_NODE_MODULES,
+                    ],
+    
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-modules-typescript-loader'
+                        },
+                        {
+                            loader: 'css-loader',
+    
+                            options: {
+                                importLoaders: 1,
+                                modules: true,
+                            }
+                        },
+                        {
+                            loader: 'sass-loader'
+                        },
+                    ]
+                },
+            ]
+        },
         
         // Specify completeness of any Source Maps generated from the transformations applied.
         devtool: 'source-map',

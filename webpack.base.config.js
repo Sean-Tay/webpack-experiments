@@ -68,32 +68,6 @@ const baseConfig = {
                         }
                     },
                 ]
-            }, 
-            {
-                test: /\.(scss|css)$/,
-                exclude: [
-                    PATHS.PATH_NODE_MODULES,
-                ],
-
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-modules-typescript-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-
-                        options: {
-                            importLoaders: 1,
-                            modules: true,
-                        }
-                    },
-                    {
-                        loader: 'sass-loader'
-                    },
-                ]
             },
         ],
     },

@@ -1,10 +1,9 @@
 const wMerge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const PATHS = require('./paths');
 
 const baseConfig = require('./webpack.base.config');
-
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = wMerge(
     baseConfig,

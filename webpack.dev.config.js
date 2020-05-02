@@ -35,7 +35,9 @@ const devConfig = wMerge(
     
                             options: {
                                 importLoaders: 1,
-                                modules: true,
+                                modules: {
+                                    localIdentName: 'app-[name]-[local]-[hash:base64]',
+                                },
                             }
                         },
                         {

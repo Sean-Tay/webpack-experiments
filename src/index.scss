@@ -1,11 +1,16 @@
 #app {
-    .red-text {
-        color: red;
-    }
+  .red-text {
+    color: red;
 
-    .people {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    border: 5px dashed tomato;
+
+    /* Test for PostCSS AutoPrefixer. */
+    -moz-border-radius: 5px;
+  }
+
+  .people {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

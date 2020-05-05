@@ -10,6 +10,7 @@ const baseConfig = require('./webpack.base.config');
 module.exports = wMerge(
     baseConfig,
     {
+        // Use CSS Modules, Minified and Extracted CSS, and Purged CSS, for Production.
         plugins: [
             new MiniCssExtractPlugin({
                 filename: '[name].css'
@@ -21,7 +22,6 @@ module.exports = wMerge(
             }),
         ],
 
-        // Use Minified and Extracted CSS for Production.
         module: {
             rules: [
                 // For PureCSS:

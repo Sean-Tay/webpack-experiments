@@ -64,10 +64,23 @@ module.exports = wMerge(
                             loader: 'css-loader',
     
                             options: {
-                                importLoaders: 1,
+                                importLoaders: 2,
                                 modules: {
                                     localIdentName: 'app-[hash:base64]',
                                 },
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+    
+                            options: {
+                                // Removes Webpack's usage of JSON.stringify to allow for Dynamic Module Imports within this Webpack Options Object.
+                                ident: 'postcss',
+    
+                                plugins: loader => [
+                                    require('postcss-import')({ root: loader.resourcePath }),
+                                    require('postcss-preset-env')(),
+                                ],
                             }
                         },
                         {

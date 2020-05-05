@@ -1,19 +1,22 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap);
 
 .main {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 
-    .title {
-        text-align: center;
-    
-        margin-bottom: 5px;
-    }
-    
-    .colored-sections {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
+  .title {
+    text-align: center;
 
-        margin-bottom: 5px;
-    }
+    margin-bottom: 5px;
+  }
+
+  .colored-sections {
+    /* Test for PostCSS Autoprefixer. */
+    user-select: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    margin-bottom: 5px;
+  }
 }

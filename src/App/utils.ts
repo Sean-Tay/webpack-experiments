@@ -4,7 +4,7 @@ export const useLatestEffect = (
   effectFunction = async () => {
     return;
   },
-  effectStateUpdateFunction = (data) => {
+  effectStateUpdateFunction = (data: any) => {
     return;
   },
   effectDependencyArray: any[] = []

@@ -1,13 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import classes from './index.scss';
+// To test if TypeScript Entry-Point Configuration works.
+// import { useLatestEffect } from "../utils";
 
-export const RedSection: React.FC<React.ComponentPropsWithoutRef<'div'>> = () => {
-    return (
-        <div className={classes['red-section']}>
-            Red
-        </div>
-    );
+import classes from "./index.scss";
+
+export const RedSection: React.FC<React.ComponentPropsWithoutRef<
+  "div"
+>> = () => {
+  //   useLatestEffect(undefined, () => {
+  //     console.log("Red Section");
+  //   });
+
+  return <div className={classes["red-section"]}>Red</div>;
 };
 
 export default RedSection;

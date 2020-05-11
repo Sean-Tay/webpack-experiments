@@ -1,6 +1,7 @@
 {
     "include": [
-        "src/**/*",
+        // Include Entry-Points as configured in Webpack here.
+        "src/index.js",
     ],
     "exclude": [
         "node_modules",
@@ -15,7 +16,7 @@
         "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
         "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.
         "isolatedModules": true, // Disallow Features that requires Cross-File Analysis. Useful when Babel is to be used for compilation and transpilation instead.
-        "lib": ["ES6"],         // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.
+        "lib": ["DOM", "ES6"],  // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.
         "module": "CommonJS",   // Specify the Module Resolution System of the Target Runtime Environment.
         "target": "ES5", 	    // Specify which Version of the Language would the Source be compiled down to, for the Target Runtime Environment.
 

@@ -107,6 +107,26 @@ const baseConfig = {
                     },
                 ]
             },
+            {
+                test: /.(png|jpe?g|gif)$/,
+                exclude: [
+                    PATHS.PATH_NODE_MODULES
+                ],
+
+                use: [
+                    {
+                        loader: 'url-loader',
+
+                        options: {
+                            // For copying the Images wholesale into the Output-Point
+                            limit: 8192
+
+                            // For copying the Images inline into the Bundle
+                            // limit: 65536
+                        }
+                    }
+                ]
+            }
         ],
     },
 

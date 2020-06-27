@@ -7,7 +7,10 @@ import './index.scss';
 import './index.css';
 
 // Test for TypeScript Config and @babel/preset-typescript
-import data from './test-typescript'
+import data from './test-typescript';
+
+// Test for File / URL Loader
+import images from './test-images';
 
 // Test Babel
 const updateBlueHeader = () => {
@@ -27,9 +30,23 @@ const updatePeople = () => {
     );
 };
 
+const updateImages = () => {
+    const imageContainerElement = document.getElementsByClassName('images')[0];
+    while (imageContainerElement.firstChild) imageContainerElement.removeChild(imageContainerElement.firstChild);
+
+    images.forEach(
+        element => {
+            const imageElement = document.createElement('img');
+            imageElement.src = element;
+            imageContainerElement.appendChild(imageElement);
+        }
+    );
+}
+
 const updatePage = () => {
     updateBlueHeader();
     updatePeople();
+    updateImages();
 };
 
 // On Page Load
@@ -45,5 +62,10 @@ if (module.hot) {
     module.hot.accept(
         ['./test-typescript'],
         updatePeople
+    );
+
+    module.hot.accept(
+        ['./test-images'],
+        updateImages
     );
 }

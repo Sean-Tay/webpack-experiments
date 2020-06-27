@@ -118,11 +118,12 @@ const baseConfig = {
                         loader: 'url-loader',
 
                         options: {
-                            // For copying the Images wholesale into the Output-Point
-                            limit: 8192
+                            // For copying the Images wholesale into the Output-Point.
+                            // limit: 8192,
+                            // name: './images/[name].[ext]'
 
-                            // For copying the Images inline into the Bundle
-                            // limit: 65536
+                            // For copying the Images inline into the Bundle.
+                            limit: 65536,
                         }
                     }
                 ]

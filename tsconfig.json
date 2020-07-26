@@ -14,7 +14,7 @@
 
         "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
 
-        // Specify Universal Alias for shorter Imports.
+        // Aliases are used to shorten import or require declarations in Files.
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"]

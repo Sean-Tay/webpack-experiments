@@ -1,8 +1,8 @@
 import React from 'react';
 
-import BlueSection from './BlueSection';
-import RedSection from './RedSection';
-import PureSection from './PureSection';
+import BlueSection from './Sections/BlueSection';
+import RedSection from './Sections/RedSection';
+import PureSection from './Sections/PureSection';
 
 import classes from './index.scss';
 

@@ -25,7 +25,7 @@ const baseConfig = {
     resolve: {
         // Aliases are used to shorten import or require declarations in Files.
         alias: { 
-            '@': PATHS.PATH_PROJECT_ROOT,
+            '@': PATHS.PATH_SRC,
         },
 
         // Specify which Directories should be searched for Dependencies. Upon a match, it will ignore the rest.

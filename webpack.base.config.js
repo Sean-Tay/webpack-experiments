@@ -60,14 +60,7 @@ const baseConfig = {
                         options: {
                             cacheDirectory: true,
 
-                            presets: [
-                                '@babel/preset-env',
-                                '@babel/preset-typescript'
-                            ],
-
-                            plugins: [
-                                '@babel/plugin-transform-runtime',
-                            ]
+                            configFile: path.resolve(PATHS.PATH_PROJECT_ROOT, './babel.config.json')
                         }
                     },
                 ]

@@ -116,6 +116,9 @@ const devConfig = wMerge(
 
             // Enable Hot Module Replacement.
             // hotOnly: true,
+
+            // Write Bundles to the Output Path on Disk, rather than just serving from Memory.
+			writeToDisk: true,
         },
     }
 );

@@ -79,13 +79,16 @@ const baseConfig = {
                         loader: 'css-loader',
 
                         options: {
-                            importLoaders: 2
+                            importLoaders: 2,
+                            sourceMap: true
                         }
                     },
                     {
                         loader: 'postcss-loader',
 
                         options: {
+                            sourceMap: true,
+
                             // Removes Webpack's usage of JSON.stringify to allow for Dynamic Module Imports within this Webpack Options Object.
                             ident: 'postcss',
 
@@ -96,7 +99,11 @@ const baseConfig = {
                         }
                     },
                     {
-                        loader: 'sass-loader'
+                        loader: 'sass-loader',
+
+                        options: {
+                            sourceMap: true
+                        }
                     },
                 ]
             },

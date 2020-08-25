@@ -52,6 +52,7 @@ const devConfig = wMerge(
     
                             options: {
                                 importLoaders: 2,
+                                sourceMap: true,
                                 modules: {
                                     localIdentName: 'app-[local]-[hash:base64]',
                                 },
@@ -61,6 +62,8 @@ const devConfig = wMerge(
                             loader: 'postcss-loader',
     
                             options: {
+                                sourceMap: true,
+
                                 // Removes Webpack's usage of JSON.stringify to allow for Dynamic Module Imports within this Webpack Options Object.
                                 ident: 'postcss',
     
@@ -71,7 +74,11 @@ const devConfig = wMerge(
                             }
                         },
                         {
-                            loader: 'sass-loader'
+                            loader: 'sass-loader',
+
+                            options: {
+                                sourceMap: true
+                            }
                         },
                     ]
                 },

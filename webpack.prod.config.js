@@ -110,5 +110,7 @@ module.exports = wMerge(
                 },
             ]
         },
+
+        devtool: 'source-map'
     }
 );

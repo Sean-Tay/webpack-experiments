@@ -1,8 +1,12 @@
+import 'core-js/stable';
+
 import React from 'react';
 
 import BlueSection from './Sections/BlueSection';
 import RedSection from './Sections/RedSection';
 import NumberSection from './Sections/NumberSection';
+
+import DynamicSection from './Sections/DynamicSection';
 
 import PureSection from './Sections/PureSection';
 
@@ -20,6 +24,8 @@ export const App: React.FC<React.ComponentPropsWithoutRef<'div'>> = () => {
                 <RedSection />
                 <NumberSection />
             </div>
+
+            <DynamicSection />
 
             <div>
                 <PureSection />

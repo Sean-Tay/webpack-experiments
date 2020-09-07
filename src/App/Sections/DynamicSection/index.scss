@@ -1,0 +1,14 @@
+.dynamic-section {
+    height: 128px;
+
+    display: flex;
+    align-items: stretch;
+
+    .part {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+}

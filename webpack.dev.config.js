@@ -85,6 +85,12 @@ const devConfig = wMerge(
             ]
         },
         
+        // Specify the Output-Points for Webpack.
+        output: {
+            path: PATHS.PATH_DIST,
+            filename: '[name].[hash].js',
+        },
+
         // Specify completeness of any Source Maps generated from the transformations applied.
         devtool: 'source-map',
         

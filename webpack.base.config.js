@@ -68,10 +68,30 @@ const baseConfig = {
         ],
     },
 
-    // Specify the Output-Points for Webpack.
-    output: {
-        path: PATHS.PATH_DIST,
-        filename: '[name].js',
+    // Override the default optimization actions that Webpack is set to perform whenever a Webpack mode is specified.
+    optimization: {
+        //#region Per-Vendor Bundle Splitting Configuation:
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all',
+
+            minSize: 0,
+            maxInitialRequests: Infinity,
+
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name(module, chunks) {
+                        // Get the name of the node_modules Package:
+                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+                        // Remove '@' Symbols from Bundle Names (Server Compatability).
+                        return `npm.${packageName.replace('@', '')}`;
+                    }
+                }
+            }
+        },
+        //#endregion
     },
 };
 

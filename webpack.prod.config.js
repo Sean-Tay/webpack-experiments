@@ -110,5 +110,11 @@ module.exports = wMerge(
                 },
             ]
         },
+
+        // Specify the Output-Points for Webpack.
+        output: {
+            path: PATHS.PATH_DIST,
+            filename: '[name].[contenthash].js',
+        },
     }
 );

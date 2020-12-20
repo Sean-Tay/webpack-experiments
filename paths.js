@@ -6,8 +6,8 @@ const PATH_SRC = path.resolve(PATH_PROJECT_ROOT, 'src');
 const PATH_DIST = path.resolve(PATH_PROJECT_ROOT, 'dist');
 
 module.exports = {
-    PATH_PROJECT_ROOT,
-    PATH_NODE_MODULES,
-    PATH_SRC,
-    PATH_DIST
+  PATH_PROJECT_ROOT,
+  PATH_NODE_MODULES,
+  PATH_SRC,
+  PATH_DIST,
 };

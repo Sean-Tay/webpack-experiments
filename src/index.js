@@ -14,39 +14,37 @@ import images from './test-images';
 
 // Test Babel
 const updateBlueHeader = () => {
-    document.getElementsByClassName('blue-text')[0].textContent = headerContent;
+  document.getElementsByClassName('blue-text')[0].textContent = headerContent;
 };
 
 const updatePeople = () => {
-    const peopleElement = document.getElementsByClassName('people')[0];
-    while (peopleElement.firstChild) peopleElement.removeChild(peopleElement.firstChild);
+  const peopleElement = document.getElementsByClassName('people')[0];
+  while (peopleElement.firstChild)
+    peopleElement.removeChild(peopleElement.firstChild);
 
-    data.forEach(
-        element => {
-            const pElement = document.createElement('p');
-            pElement.textContent = element.name;
-            peopleElement.appendChild(pElement);
-        }
-    );
+  data.forEach((element) => {
+    const pElement = document.createElement('p');
+    pElement.textContent = element.name;
+    peopleElement.appendChild(pElement);
+  });
 };
 
 const updateImages = () => {
-    const imageContainerElement = document.getElementsByClassName('images')[0];
-    while (imageContainerElement.firstChild) imageContainerElement.removeChild(imageContainerElement.firstChild);
+  const imageContainerElement = document.getElementsByClassName('images')[0];
+  while (imageContainerElement.firstChild)
+    imageContainerElement.removeChild(imageContainerElement.firstChild);
 
-    images.forEach(
-        element => {
-            const imageElement = document.createElement('img');
-            imageElement.src = element;
-            imageContainerElement.appendChild(imageElement);
-        }
-    );
-}
+  images.forEach((element) => {
+    const imageElement = document.createElement('img');
+    imageElement.src = element;
+    imageContainerElement.appendChild(imageElement);
+  });
+};
 
 const updatePage = () => {
-    updateBlueHeader();
-    updatePeople();
-    updateImages();
+  updateBlueHeader();
+  updatePeople();
+  updateImages();
 };
 
 // On Page Load
@@ -54,18 +52,9 @@ updatePage();
 
 // For Testing Hot Module Replacement
 if (module.hot) {
-    module.hot.accept(
-        ['./test-module'],
-        updateBlueHeader
-    );
+  module.hot.accept(['./test-module'], updateBlueHeader);
 
-    module.hot.accept(
-        ['./test-typescript'],
-        updatePeople
-    );
+  module.hot.accept(['./test-typescript'], updatePeople);
 
-    module.hot.accept(
-        ['./test-images'],
-        updateImages
-    );
+  module.hot.accept(['./test-images'], updateImages);
 }

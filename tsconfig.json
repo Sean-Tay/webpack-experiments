@@ -1,7 +1,7 @@
 {
     "include": [
         // Include Entry-Points as configured in Webpack here.
-        "src/index.js",
+        "src",
     ],
     "exclude": [
         "node_modules",

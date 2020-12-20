@@ -1,100 +1,100 @@
 {
-    // Prevent ESLint from looking further up the File Directory Hierarchy when searching for the ESLint Config File for each Input File.
-    // Tip: Disable to allow Cross-Project consistency.
-    "root": true,
+  // Prevent ESLint from looking further up the File Directory Hierarchy when searching for the ESLint Config File for each Input File.
+  // Tip: Disable to allow Cross-Project consistency.
+  "root": true,
 
-    // Configure the Parser that ESLint uses. 
-    "parser": "@typescript-eslint/parser", // Typescript Parser.
+  // Configure the Parser that ESLint uses.
+  "parser": "@typescript-eslint/parser", // Typescript Parser.
 
-    // Configure how ESLint reads the Source Files.
-    "parserOptions": {
-        "sourceType": "module", // (ECMA Modules)
-        "ecmaFeatures": {
-            "jsx": true // For React.
-        },
-
-        "project": "tsconfig.json" // For using Rules that require Type Information.
+  // Configure how ESLint reads the Source Files.
+  "parserOptions": {
+    "sourceType": "module", // (ECMA Modules)
+    "ecmaFeatures": {
+      "jsx": true // For React.
     },
 
-    // Presets that describes the Environment the Scripts are going to execute in. Specifies Globals that will be allowed.
-    "env": {
-        "browser": true,
-        "node": true,
-        "commonjs": true,
-        "es6": true,
-        "jest": true
-    },
+    "project": "tsconfig.json" // For using Rules that require Type Information.
+  },
 
-    // Extend the functionality of the base ESLint with npm installed Third-Party Tools.
-    "plugins": [
-        "eslint-plugin-import",
-        "eslint-plugin-jsdoc",
-        "eslint-plugin-prefer-arrow",
+  // Presets that describes the Environment the Scripts are going to execute in. Specifies Globals that will be allowed.
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
+  },
 
-        "@typescript-eslint",
-        
-        "prettier"
+  // Extend the functionality of the base ESLint with npm installed Third-Party Tools.
+  "plugins": [
+    "eslint-plugin-import",
+    "eslint-plugin-jsdoc",
+    "eslint-plugin-prefer-arrow",
+
+    "@typescript-eslint",
+
+    "prettier"
+  ],
+
+  // Extend from existing Groups of Rules / Presets.
+  // Note: The order is important in determining which Presets override others.
+  "extends": [
+    "eslint:recommended",
+
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/babel"
+  ],
+
+  "rules": {
+    // Indentation
+    // 'indent': 'off',
+    // '@typescript-eslint/indent': [
+    //     'error', 2
+    // ],
+
+    // ts Directives
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description",
+        "ts-nocheck": false
+      }
     ],
 
-    // Extend from existing Groups of Rules / Presets.
-	// Note: The order is important in determining which Presets override others.
-    "extends": [
-        "eslint:recommended",
+    // Interfaces
+    "@typescript-eslint/no-empty-interface": "off", // Use-Cases: Allowance for Self-Documenting Interface Names, Placeholder for potential Future Extension...
 
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-
-        "prettier",
-        "prettier/@typescript-eslint",
-        "prettier/babel"
+    // Unused-Variables
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "none",
+        "caughtErrors": "none"
+      }
     ],
 
-    "rules": {
-        // Indentation
-        // 'indent': 'off',
-        // '@typescript-eslint/indent': [
-        //     'error', 2
-        // ],
+    // Return Types
+    "@typescript-eslint/explicit-module-boundary-types": "off",
 
-        // ts Directives
-        "@typescript-eslint/ban-ts-comment": [
-            "error",
-            {
-                "ts-ignore": "allow-with-description",
-                "ts-nocheck": false
-            }
-        ],
+    // an"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
 
-        // Interfaces
-        "@typescript-eslint/no-empty-interface": "off", // Use-Cases: Allowance for Self-Documenting Interface Names, Placeholder for potential Future Extension...
+    // string
+    "@typescript-eslint/restrict-template-expressions": "off", // Allow String Templates to accept input from Expressions of non-String Types.
 
-        // Unused-Variables
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": [
-            "warn",
-            {
-                "args": "none",
-                "caughtErrors": "none"
-            }
-        ],
+    // Asynchronous Code
+    "@typescript-eslint/no-floating-promises": "off", // Allow Promises without catch functionality.
+    "@typescript-eslint/require-await": "off"
 
-        // Return Types
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-
-        // an"
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unsafe-assignment": "off",
-        "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-unsafe-return": "off",
-
-        // string
-        "@typescript-eslint/restrict-template-expressions": "off", // Allow String Templates to accept input from Expressions of non-String Types.
-
-        // Asynchronous Code
-        "@typescript-eslint/no-floating-promises": "off", // Allow Promises without catch functionality.
-        "@typescript-eslint/require-await": "off"
-
-        // Prettier
-        // "prettier/prettier": ["warn"] // Enable Lint Rules for Prettier Formatting Violations
-    }
+    // Prettier
+    // "prettier/prettier": ["warn"] // Enable Lint Rules for Prettier Formatting Violations
+  }
 }

@@ -1,31 +1,29 @@
 {
-    "include": [
-        // Include Entry-Points as configured in Webpack here.
-        "src",
-    ],
-    "exclude": [
-        "node_modules",
-    ],
-    "compilerOptions": {
-        "types": ["webpack-env"], // Specify which Type Definitions are 'visible' in the Global Scope, in addition to which are 'visible' in the Local Scope. Note: This Option is independent of the 'exclude' Option specified above.
-        "noImplicitAny": true,  // Raise Error on Expressions with an implicit 'any' Type.
+  "include": [
+    // Include Entry-Points as configured in Webpack here.
+    "src"
+  ],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "types": ["webpack-env"], // Specify which Type Definitions are 'visible' in the Global Scope, in addition to which are 'visible' in the Local Scope. Note: This Option is independent of the 'exclude' Option specified above.
+    "noImplicitAny": true, // Raise Error on Expressions with an implicit 'any' Type.
 
-        "allowJs": true,	    // Allow JS Files to be processed with Type Checking.
+    "allowJs": true, // Allow JS Files to be processed with Type Checking.
 
-        "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
+    "moduleResolution": "Node", // Specify the in-built Method for resolving a Module's Dependencies.
 
-        // Aliases are used to shorten import or require declarations in Files.
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        },
+    // Aliases are used to shorten import or require declarations in Files.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
 
-        "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.
-        "isolatedModules": true, // Disallow Features that requires Cross-File Analysis. Useful when Babel is to be used for compilation and transpilation instead.
-        "lib": ["DOM", "ES6"],  // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.
-        "module": "CommonJS",   // Specify the Module Resolution System of the Target Runtime Environment.
-        "target": "ES5", 	    // Specify which Version of the Language would the Source be compiled down to, for the Target Runtime Environment.
+    "esModuleInterop": true, // Allow and Support import / export between CommonJS Modules and ES Modules.
+    "isolatedModules": true, // Disallow Features that requires Cross-File Analysis. Useful when Babel is to be used for compilation and transpilation instead.
+    "lib": ["DOM", "ES6"], // Specify which Language Features will be available in the Target Runtime Environment. Injects in-built API TypeScript Declarations to avoid Compilation Errors.
+    "module": "CommonJS", // Specify the Module Resolution System of the Target Runtime Environment.
+    "target": "ES5", // Specify which Version of the Language would the Source be compiled down to, for the Target Runtime Environment.
 
-        "noEmit": true, 	    // Do not emit any Artifacts once checking is done. Useful when Babel is to be used for compilation and transpilation instead.
-    }
+    "noEmit": true // Do not emit any Artifacts once checking is done. Useful when Babel is to be used for compilation and transpilation instead.
+  }
 }

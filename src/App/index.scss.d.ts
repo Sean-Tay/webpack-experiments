@@ -2,8 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   'colored-sections': string;
-  'main': string;
-  'title': string;
+  main: string;
+  title: string;
 }
 export const cssExports: CssExports;
 export default cssExports;

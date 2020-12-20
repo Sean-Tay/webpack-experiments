@@ -1,4 +1,12 @@
 {
+    // ESLint Setting Configuration:
+    "settings": {
+        // Specify React Version.
+        "react": {
+            "version": "detect"
+        }
+    },
+
     // Prevent ESLint from looking further up the File Directory Hierarchy when searching for the ESLint Config File for each Input File.
     // Tip: Disable to allow Cross-Project consistency.
     "root": true,
@@ -30,6 +38,7 @@
         "eslint-plugin-import",
         "eslint-plugin-jsdoc",
         "eslint-plugin-prefer-arrow",
+        "eslint-plugin-react",
 
         "@typescript-eslint",
         
@@ -46,7 +55,8 @@
 
         "prettier",
         "prettier/@typescript-eslint",
-        "prettier/babel"
+        "prettier/babel",
+        "prettier/react"
     ],
 
     "rules": {
@@ -92,7 +102,11 @@
 
         // Asynchronous Code
         "@typescript-eslint/no-floating-promises": "off", // Allow Promises without catch functionality.
-        "@typescript-eslint/require-await": "off"
+        "@typescript-eslint/require-await": "off",
+
+        // React
+        "react/display-name": "off", // Disable React displayName requirement (Functional Components?)
+        "react/prop-types": "off" // Disable propType validation requirement.
 
         // Prettier
         // "prettier/prettier": ["warn"] // Enable Lint Rules for Prettier Formatting Violations

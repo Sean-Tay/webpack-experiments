@@ -9,7 +9,7 @@
     "dev": "npm run remove-dist && npx webpack-dev-server --mode=development --config webpack.dev.config.js",
     "dev-watch": "nodemon --watch package.json --watch tsconfig.json --watch webpack.base.config.js --watch webpack.dev.config.js --exec \"npm run dev\"",
     "check-types": "tsc",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/index.js",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx 'src/**/*.{js,jsx,ts,tsx}'",
     "prettify": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "build": "npm run remove-dist && npm run check-types && webpack --mode=production --config webpack.prod.config.js"
   },

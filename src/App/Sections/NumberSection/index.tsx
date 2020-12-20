@@ -4,7 +4,7 @@ import { genRandomInteger, square } from '@/utils';
 
 import classes from './index.scss';
 
-export const NumberSection: React.ComponentType<{}> = () => {
+export const NumberSection: React.ComponentType<Record<string, never>> = () => {
   return (
     <div className={classes['number-section']}>
       {square(genRandomInteger(5))}

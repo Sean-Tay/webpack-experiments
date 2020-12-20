@@ -1,13 +1,12 @@
 {
     "include": [
-        // Include Entry-Points as configured in Webpack here.
-        "src/index.js",
+        "src"
     ],
     "exclude": [
         "node_modules",
     ],
     "compilerOptions": {
-        "types": [ "react" ],   // Specify that TypeScript should only Type Check the following Library Packages (which have the corresponding @types/'<package>' Scoped Package installed). Note: This Option is independent of the 'exclude' Option specified above.
+        "types": [ "react", "jest" ],   // Specify which Type Definitions are 'visible' in the Global Scope, in addition to which are 'visible' in the Local Scope. Note: This Option is independent of the 'exclude' Option specified above.
         "noImplicitAny": true,  // Raise Error on Expressions with an implicit 'any' Type.
 
         "allowJs": true,	    // Allow JS Files to be processed with Type Checking.

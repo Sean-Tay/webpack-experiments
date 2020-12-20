@@ -5,7 +5,4 @@ import App from './App';
 
 import 'purecss';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));

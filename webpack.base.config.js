@@ -6,93 +6,89 @@ const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const PATHS = require('./paths');
 
 const baseConfig = {
-    // Specify additional Plugins to expand the functionality of Webpack.
-    // Note: Don't forget the new keyword.
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: path.resolve(PATHS.PATH_SRC, './index.html'),
-        }),
-        new ForkTSCheckerWebpackPlugin()
-    ],
+  // Specify additional Plugins to expand the functionality of Webpack.
+  // Note: Don't forget the new keyword.
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: path.resolve(PATHS.PATH_SRC, './index.html'),
+    }),
+    new ForkTSCheckerWebpackPlugin(),
+  ],
 
-    // Specify the Entry-Points for Webpack.
-    // Note: Webpack will traverse the Entry-Points in the order that they are specified.
-    entry: {
-        'main': path.resolve(PATHS.PATH_SRC, './index.js'),
+  // Specify the Entry-Points for Webpack.
+  // Note: Webpack will traverse the Entry-Points in the order that they are specified.
+  entry: {
+    main: path.resolve(PATHS.PATH_SRC, './index.js'),
+  },
+
+  // Adjust Dependency Resolution Behaviour.
+  resolve: {
+    // Aliases are used to shorten import or require declarations in Files.
+    alias: {
+      '@': PATHS.PATH_SRC,
     },
 
-    // Adjust Dependency Resolution Behaviour.
-    resolve: {
-        // Aliases are used to shorten import or require declarations in Files.
-        alias: { 
-            '@': PATHS.PATH_SRC,
-        },
+    // Specify which Directories should be searched for Dependencies. Upon a match, it will ignore the rest.
+    modules: [PATHS.PATH_SRC, 'node_modules'],
 
-        // Specify which Directories should be searched for Dependencies. Upon a match, it will ignore the rest.
-        modules: [
-            PATHS.PATH_SRC,
-            'node_modules'
-        ],
+    // Specify which Files should be the Entry Point in a Directory Module. Upon a match, it will ignore the rest.
+    mainFiles: ['index'],
 
-        // Specify which Files should be the Entry Point in a Directory Module. Upon a match, it will ignore the rest.
-        mainFiles: [
-            'index'
-        ],
+    // Allow for resolution of the listed Extensions, in the specified order. Upon a match, it will ignore the rest.
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
 
-        // Allow for resolution of the listed Extensions, in the specified order. Upon a match, it will ignore the rest.
-        extensions: [
-            '.tsx', '.ts', '.jsx', '.js'
-        ],
-    },
+  // Specify how different Modules in the Project will be treated.
+  module: {
+    rules: [
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: [PATHS.PATH_NODE_MODULES],
 
-    // Specify how different Modules in the Project will be treated.
-    module: {
-        rules: [
-            {
-                test: /\.(ts|js)x?$/,
-                exclude: [
-                    PATHS.PATH_NODE_MODULES,
-                ],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              configFile: path.resolve(
+                PATHS.PATH_PROJECT_ROOT,
+                './babel.config.json'
+              ),
 
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            configFile: path.resolve(PATHS.PATH_PROJECT_ROOT, './babel.config.json'),
-
-                            "cacheDirectory": true
-                        }
-                    },
-                ]
+              cacheDirectory: true,
             },
+          },
         ],
-    },
+      },
+    ],
+  },
 
-    // Override the default optimization actions that Webpack is set to perform whenever a Webpack mode is specified.
-    optimization: {
-        //#region Per-Vendor Bundle Splitting Configuation:
-        runtimeChunk: 'single',
-        splitChunks: {
-            chunks: 'all',
+  // Override the default optimization actions that Webpack is set to perform whenever a Webpack mode is specified.
+  optimization: {
+    //#region Per-Vendor Bundle Splitting Configuation:
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
 
-            minSize: 0,
-            maxInitialRequests: Infinity,
+      minSize: 0,
+      maxInitialRequests: Infinity,
 
-            cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name(module, chunks) {
-                        // Get the name of the node_modules Package:
-                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module, chunks) {
+            // Get the name of the node_modules Package:
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
 
-                        // Remove '@' Symbols from Bundle Names (Server Compatability).
-                        return `npm.${packageName.replace('@', '')}`;
-                    }
-                }
-            }
+            // Remove '@' Symbols from Bundle Names (Server Compatability).
+            return `npm.${packageName.replace('@', '')}`;
+          },
         },
-        //#endregion
+      },
     },
+    //#endregion
+  },
 };
 
 module.exports = baseConfig;
